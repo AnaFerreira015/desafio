@@ -37,13 +37,6 @@ app.get('/livros', (req, res) => {
   });
 });
 
-//app.get('/series/name/?q=luke')
-//req.query.q
-/*app.get("/series/:q", (req, res) => {  
-  res.send(req.params);
-})*/
-
-
 app.get('/series/name', (req, res) => {
   var q = req.query.q;
   seriesRef.orderByChild("nome").equalTo(q).once("value", (snap) => {
@@ -53,7 +46,6 @@ app.get('/series/name', (req, res) => {
 
 app.get('/series/year', (req, res) => {
   var q = parseInt(req.query.q);
-  //console.log(typeof q);
   seriesRef.orderByChild("ano").equalTo(q).once("value", (snap) => {
     res.send(snap.val());
   });
@@ -76,7 +68,6 @@ app.get('/filmes/name', (req, res) => {
 
 app.get('/filmes/year', (req, res) => {
   var q = parseInt(req.query.q);
-  //console.log(typeof q);
   filmesRef.orderByChild("ano").equalTo(q).once("value", (snap) => {
     res.send(snap.val());
   });
@@ -99,7 +90,6 @@ app.get('/livros/name', (req, res) => {
 
 app.get('/livros/year', (req, res) => {
   var q = parseInt(req.query.q);
-  //console.log(typeof q);
   livrosRef.orderByChild("ano").equalTo(q).once("value", (snap) => {
     res.send(snap.val());
   });
@@ -122,7 +112,6 @@ app.get('/hqs/name', (req, res) => {
 
 app.get('/hqs/year', (req, res) => {
   var q = parseInt(req.query.q);
-  //console.log(typeof q);
   hqsRef.orderByChild("ano").equalTo(q).once("value", (snap) => {
     res.send(snap.val());
   });
